@@ -1,0 +1,26 @@
+<div *ngIf="student">
+
+    <h2>{{student.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{student.id}}</div>
+    <div>
+      <label for="student-name">student name: </label>
+      <input id="student-name" [(ngModel)]="student.name" placeholder="name">
+    </div>
+    <div>
+      <label for="student-id">student id: </label>
+      <input id="student-id" [(ngModel)]="student.id" placeholder="id">
+    </div>
+    <div>
+      <label for="student-ra">student ra: </label>
+      <input id="student-ra" [(ngModel)]="student.ra" placeholder="ra">
+    </div>
+    <div>
+      <label for="student-shift">student shift: </label>
+      <input id="student-shift" [(ngModel)]="student.shift" placeholder="shift">
+    </div>
+    <div>
+      <label for="student-course">student course: </label>
+      <input id="student-course" [(ngModel)]="student.course" placeholder="course">
+    </div>
+  
+  </div>
