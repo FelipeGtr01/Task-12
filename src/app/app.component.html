@@ -10,7 +10,7 @@
       <span> Tarefa 10 [Rotas] </span>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a label="Student" rel="noopener" routerLink="/students" title="Route of Students"> Student </a> &nbsp;&nbsp;&nbsp;
-        <a label="Teacher" rel="noopener" routerLink="" title="Route of Teachers"> Teacher </a> &nbsp;&nbsp;&nbsp;
+        <a label="Teacher" rel="noopener" routerLink="/teachers" title="Route of Teachers"> Teacher </a> &nbsp;&nbsp;&nbsp;
         <a href="javascript:void(0)" title="Back to the previous page" onClick="history.go(-1); return false;"> Back </a>
     </div>
     
@@ -21,7 +21,7 @@
       <input type="hidden" #selection>
     
       <div class="card-container">
-        <app-students></app-students> 
+        <router-outlet></router-outlet>
       </div>
     
       <!-- Messages -->
@@ -41,4 +41,3 @@
           <br><br>
       </footer>
     </div>
-</div>
