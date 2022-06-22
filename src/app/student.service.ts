@@ -11,6 +11,8 @@ import { MessageService } from './message.service';
 })
 export class StudentService {
 
+  private studentsUrl = 'http://localhost:3000/json';  // URL to web api
+
   getStudents(): Observable<Student[]> {
     const students = of(STUDENT);
     this.messageService.add('Serviço estudantil: estudantes buscados');
