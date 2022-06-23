@@ -62,4 +62,37 @@ export class StudentService {
       return of(result as T);
     };
   }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  /** PUT: update the hero on the server */
+  updateStudent(student: Student): Observable<any> {
+    return this.http.put(this.studentsUrl, student, this.httpOptions)
+    .pipe(
+      tap(_ => this.log(`updated student id=${student.id}`)),
+      catchError(this.handleError<any>('updateStudent'))
+    );
+    }
+
+  /** POST: add a new hero to the server */
+  addStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>(this.studentsUrl, student, this.httpOptions)
+    .pipe(
+      tap((newStudent: Student) => this.log(`added student w/ id=${newStudent.id}`)),
+      catchError(this.handleError<Student>('addStudent'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteStudent(id: number): Observable<Student> {
+    const url = `${this.studentsUrl}/${id}`;
+
+    return this.http.delete<Student>(url, this.httpOptions)
+    .pipe(
+      tap(_ => this.log(`deleted student id=${id}`)),
+      catchError(this.handleError<Student>('deleteStudent'))
+    );
+  }
 }

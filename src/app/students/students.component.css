@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     height: 20px;
-    width: 200px;
+    width: 100%;
     justify-content: center;
   }
 
@@ -51,4 +51,39 @@
     padding: 5%;
     margin-right: 5%;
     border-radius: 4px;
+  }
+
+  .add-button {
+    margin-bottom: 20px;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    background-color: black;
+    color: gold;
+    border-radius: 5px;
+    width: 150px;
+   }
+   
+   .add-button:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+   }
+   
+   button.delete {
+     background-color: red;
+     color:  white;
+     padding: 15px;
+     width: 10px;
+   }
+
+   button.delete:hover {
+    background-color: red;
+  }
+
+  .new-student {
+    align-items: center;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    list-style-type: none;
+    padding: 16px;
   }

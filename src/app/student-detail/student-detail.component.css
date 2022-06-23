@@ -21,3 +21,17 @@ h2{
   input{
     width: 95%;
   }
+
+  .save {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    background-color: black;
+    color: gold;
+    border-radius: 5px;
+    width: 100px;
+  }

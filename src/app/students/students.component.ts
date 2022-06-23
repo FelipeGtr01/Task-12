@@ -3,6 +3,7 @@ import { Student } from '../student';
 import { STUDENT } from '../mock-students';
 import { MessageService } from '../message.service';
 import { StudentService } from '../student.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -30,5 +31,19 @@ export class StudentsComponent implements OnInit {
   getStudents(): void {
     this.studentService.getStudents()
         .subscribe(student => this.student = student);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.studentService.addStudent({ name } as Student)
+      .subscribe(student => {
+        this.students.push(student);
+      });
+  }
+
+  delete(student: Student): void {
+    this.students = this.students.filter(h => h !== student);
+    this.studentService.deleteStudent(student.id).subscribe();
   }
 }

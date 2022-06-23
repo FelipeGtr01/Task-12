@@ -5,8 +5,21 @@
     <button [class.selected]="student === selectedStudent" type="button" (click)="onSelect(student)">
       <span class="badge">{{student.id}}</span>
       <span class="name">{{student.name}}</span>
+      <button type="button" class="delete" title="delete student"
+      (click)="delete(student)">x</button>
     </button>
+    
   </li>
 </ul>
 
 <app-student-detail [student]="selectedStudent"></app-student-detail>
+
+<div class="new-student">
+  <label for="new-student">Student name: </label>
+  <input id="new-student" #studentName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(studentName.value); studentName.value=''">
+    Add student
+  </button>
+</div>
