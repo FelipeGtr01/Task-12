@@ -4,7 +4,8 @@
   <li *ngFor="let teacher of teacher">
     <button [class.selected]="teacher === selectedTeacher" type="button" (click)="onSelect(teacher)">
       <a routerLink="/detail/{{teacher.idprof}}">
-        <span class="teacher2">{{teacher.nameprof}}</span>
+        <span class="badge">{{teacher.idprof}}</span>
+        <span class="teacher2">{{teacher.nomeprof}}</span>
       </a>
     </button>
     

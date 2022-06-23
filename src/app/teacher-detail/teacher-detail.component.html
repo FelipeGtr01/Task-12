@@ -1,17 +1,17 @@
 <div *ngIf="teacher" class="teacher-detail">
   <button type="button" (click)="goBack()">Voltar</button>
   <div>
-    <h2 class="teacher">Detalhes do Professor: {{teacher.nameprof}}</h2>
+    <h2 class="teacher">Detalhes do Professor: {{teacher.nomeprof}}</h2>
     <div>
       <label for="teacher-idprof"> id </label>
       <input id="teacher-idprof" [(ngModel)]="teacher.idprof" placeholder="id">
     </div>
     <div>
-      <label for="teacher-nameprof"> Nome </label>
-      <input id="teacher-nameprof" [(ngModel)]="teacher.nameprof" placeholder="Nome">
+      <label for="teacher-nomeprof"> Nome </label>
+      <input id="teacher-nomeprof" [(ngModel)]="teacher.nomeprof" placeholder="Nome">
     </div>
     <div>
-      <label for="teacher-codprof"> Código </label>
-      <input id="teacher-codprof" [(ngModel)]="teacher.codprof" placeholder="Código">
+      <label for="teacher-codigoprof"> Código </label>
+      <input id="teacher-codigoprof" [(ngModel)]="teacher.codigoprof" placeholder="Código">
     </div>
   </div>

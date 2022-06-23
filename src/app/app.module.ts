@@ -9,6 +9,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TeacherDetailComponent } from './teacher-detail/teacher-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TeacherDetailComponent } from './teacher-detail/teacher-detail.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

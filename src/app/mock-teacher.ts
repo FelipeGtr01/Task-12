@@ -1,13 +1,13 @@
 import { Teacher } from './teacher';
 
 export const TEACHERS: Teacher[] = [
-  { idprof: 9, nameprof: 'Márcio Nogueira', codprof: 209 },
-  { idprof: 10, nameprof: 'José Filho', codprof: 210 },
-  { idprof: 11, nameprof: 'Jandira Meireles', codprof: 211 },
-  { idprof: 12, nameprof: 'Cássio Moura', codprof: 212 },
-  { idprof: 13, nameprof: 'Marco Aveleira', codprof: 213 },
-  { idprof: 14, nameprof: 'Elaine Silva', codprof: 214 },
-  { idprof: 15, nameprof: 'Murilo Rossi', codprof: 215 },
-  { idprof: 16, nameprof: 'Joel Santos', codprof: 216 },
-  { idprof: 17, nameprof: 'Milena Oliveira', codprof: 217 }
+  { idprof: 1, nomeprof: 'Mário Sérgio Cortella', codigoprof: 123456789 },
+  { idprof: 2, nomeprof: 'Leandro Karnal', codigoprof: 123456789 },
+  { idprof: 3, nomeprof: 'Clóvis de Barros filho', codigoprof: 123456789 },
+  { idprof: 4, nomeprof: 'Cássio Prado', codigoprof: 123456789 },
+  { idprof: 5, nomeprof: 'Marco Aurélio', codigoprof: 123456789 },
+  { idprof: 6, nomeprof: 'Fiedrich Nietzsche', codigoprof: 123456789 },
+  { idprof: 7, nomeprof: 'Platão', codigoprof: 123456789 },
+  { idprof: 8, nomeprof: 'Sócrates', codigoprof: 123456789 },
+  { idprof: 9, nomeprof: 'Aristóteles', codigoprof: 123456789 }
 ];

@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Student } from './student';
-import { STUDENT } from './mock-students';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,52 @@ export class StudentService {
 
   private studentsUrl = 'http://localhost:3000/json';  // URL to web api
 
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
+
+    /** GET heroes from the server */
   getStudents(): Observable<Student[]> {
-    const students = of(STUDENT);
-    this.messageService.add('Serviço estudantil: estudantes buscados');
-    return students;
+    return this.http.get<Student[]>(this.studentsUrl)
+    .pipe(
+      tap(_ => this.log('fetched students')),
+      catchError(this.handleError<Student[]>('getStudents', []))
+    );
   }
 
-  constructor(private messageService: MessageService) { }
-
+  /** GET hero by id. Will 404 if id not found */
   getStudent(id: number): Observable<Student> {
-    // For now, assume that a hero with the specified `id` always exists.
-    // Error handling will be added in the next step of the tutorial.
-    const student = STUDENT.find(h => h.id === id)!;
-    this.messageService.add(`Estudante Selecionado id=${id}`);
-    return of(student);
+    const url = `${this.studentsUrl}/${id}`;
+    return this.http.get<Student>(url)
+    .pipe(
+      tap(_ => this.log(`fetched student id=${id}`)),
+      catchError(this.handleError<Student>(`getStudent id=${id}`))
+    );
+  }
+
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+  this.messageService.add(`studentService: ${message}`);
+  }
+
+  /**
+ * Handle Http operation that failed.
+ * Let the app continue.
+ *
+ * @param operation - name of the operation that failed
+ * @param result - optional value to return as the observable result
+ */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }
